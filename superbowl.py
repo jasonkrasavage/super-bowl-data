@@ -5,7 +5,7 @@ from numpy import array
 #Work done by Jason Krasavageo on 2/1/2019
 '''function for smoothing out an array of data, making it easier to read
 originally created by Randal Olson, grabbed from http://www.randalolson.com/'''
-def sliding_mean(data_array, window=1):  
+def sliding_mean(data_array, window=2):  
     data_array = array(data_array)  
     new_list = []  
     for i in range(len(data_array)):  
@@ -27,6 +27,7 @@ losses = []
 for index, row in data.iterrows():
     year = row["Date"][:4]
     win, loss = row["Result"][2:].split("-")
+    
     years.append(int(year))
     wins.append(int(win))
     losses.append(int(loss))
@@ -34,10 +35,12 @@ wins = sliding_mean(wins)
 losses = sliding_mean(losses) 
 
 print(years)
+print(wins)
+print(losses)
 '''plot stuff'''
 plt.figure(figsize=(12, 5))
-plt.xlim(1968, 2017)
-plt.xticks(range(1968, 2019, 2))
+plt.xlim(1967, 2017)
+plt.xticks(range(1967, 2021, 2))
 ax = plt.axes()        
 ax.xaxis.grid()
 #for rotating xaxis labels
