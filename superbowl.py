@@ -42,7 +42,7 @@ ax = plt.axes()
 ax.xaxis.grid()
 #for rotating xaxis labels
 plt.setp(ax.get_xticklabels(), rotation=80, horizontalalignment='right') 
-plt.title("Point Differential of Superbowl Games", fontsize=22)
+plt.title("Point Differential of Super Bowl Games", fontsize=22)
 plt.plot(years, wins, color='green', label='wins')
 plt.plot(years, losses, color='red', label = 'losses')
 #filling the gap between win and loss line
